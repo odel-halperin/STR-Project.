@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קורות חיים - אדל הלפרין</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Assistant', sans-serif; line-height: 1.4; color: #1e293b; background-color: #f1f5f9; padding: 40px 20px; }
+        .cv-container { max-width: 850px; margin: 0 auto; background: white; padding: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-radius: 8px; }
+        h1 { font-size: 28px; font-weight: 800; color: #0f172a; margin-bottom: 5px; }
+        h2 { font-size: 18px; font-weight: 700; color: #2563eb; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; margin-top: 25px; margin-bottom: 15px; text-transform: uppercase; }
+        .contact-info { display: flex; justify-content: center; gap: 20px; font-size: 14px; color: #64748b; margin-bottom: 30px; }
+        .contact-info a { color: #2563eb; text-decoration: none; font-weight: 600; }
+        .section-content { margin-bottom: 20px; }
+        .job-title { font-weight: 700; font-size: 16px; display: flex; justify-content: space-between; }
+        .job-date { color: #64748b; font-weight: 400; font-size: 14px; }
+        ul { list-style-type: none; padding-right: 0; margin-top: 8px; }
+        li { margin-bottom: 6px; position: relative; padding-right: 15px; font-size: 15px; }
+        li::before { content: "•"; position: absolute; right: 0; color: #2563eb; font-weight: bold; }
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .link-btn { color: #2563eb; font-weight: 600; text-decoration: underline; cursor: pointer; }
+        @media print { body { background: white; padding: 0; } .cv-container { box-shadow: none; width: 100%; padding: 20px; } }
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+    <!-- Header -->
+    <header class="text-center">
+        <h1>אדל הלפרין</h1>
+        <p class="text-lg font-semibold text-slate-600 mb-4">Manual QA Tester</p>
+        <div class="contact-info">
+            <span>058-7163206</span>
+            <span>|</span>
+            <a href="mailto:odel3206@gmail.com">odel3206@gmail.com</a>
+            <span>|</span>
+            <a href="https://www.linkedin.com/in/odel-halperin" target="_blank">LinkedIn Profile</a>
+        </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section class="section-content">
+        <h2>תמצית מקצועית</h2>
+        <p class="text-slate-700">
+            בודקת תוכנה (QA) יסודית ובעלת עין חדה לאיתור באגים מורכבים. בעלת ניסיון מעשי בבניית מערכות וניהול בדיקות מקצה לקצה. ממוקדת איכות, בעלת יכולת למידה עצמית גבוהה ושליטה במתודולוגיות עבודה מתקדמות.
+        </p>
+    </section>
+
+    <!-- Education & Training -->
+    <section class="section-content">
+        <h2>השכלה וקורסים מקצועיים</h2>
+        
+        <div class="mb-4">
+            <div class="job-title">
+                <span>תואר ראשון B.Ed - מכללת הרצוג</span>
+                <span class="job-date">2015-2016</span>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <div class="job-title">
+                <span>קורס QA בדיקות ידניות - המכללה לאוטומציה</span>
+                <span class="job-date">2024-2025</span>
+            </div>
+            <ul>
+                <li>התמחות בניהול מחזור בדיקות מלא: כתיבת מסמכי STP, STD והוצאת דוחות סיכום STR.</li>
+                <li>ניסיון מעשי בניהול בדיקות ב-TestRail ודיווח באגים ב-Jira.</li>
+                <li>ביצוע בדיקות מקיפות לאתרים ייעודיים (AcademyBugs) עם איתור של כ-25 באגים ברמות חומרה שונות.</li>
+                <li>בניית אתר אישי "קוד ונפש" המדגים את היכולות המקצועיות: <a href="https://odel-halperin.github.io/portfolio/" class="link-btn">כניסה לאתר</a>.</li>
+                <li>ביצוע פרויקט STR מלא על מערכת "Azamra 4U": <a href="https://odel-halperin.github.io/STR/" class="link-btn">צפייה בדוח STR</a>.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section-content">
+        <h2>ניסיון תעסוקתי</h2>
+        <div class="job-title">
+            <span>ניהול בית ספר לחוגי תרבות - מרכז גוננים</span>
+            <span class="job-date">2020-2023</span>
+        </div>
+        <ul>
+            <li>ניהול מערך תרבות ופנאי עבור 200 תלמידות וצוות של 24 מורות.</li>
+            <li>כחלק מניהולי, בניתי אתר ייעודי לניהול ורישום חוגים ותשלומים הפועל בתצורת ענן.</li>
+            <li>ביצוע בדיקות פונקציונליות למערכת הרישום "Azamra 4U" ואיתור של 43 באגים קריטיים.</li>
+            <li>ניהול מערך CRM ותשלומים במערכת Online תוך הקפדה על דיוק נתונים ושירות לקוחות.</li>
+        </ul>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="section-content">
+        <h2>סביבות עבודה וכישורים טכניים</h2>
+        <div class="skills-grid">
+            <div>
+                <p class="font-bold text-sm text-slate-500">בדיקות ומתודולוגיות:</p>
+                <ul class="text-sm">
+                    <li>Web Testing: Chrome, Firefox, Edge</li>
+                    <li>Mobile Testing: Android (כולל בדיקת אפליקציית "רב קו")</li>
+                    <li>Agile, STP, STD, STR, Sanity, Regression</li>
+                    <li>API Testing: Postman, JSON, XML</li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-bold text-sm text-slate-500">כלים ושפות:</p>
+                <ul class="text-sm">
+                    <li>Test Management: TestRail, Jira, Zephyr</li>
+                    <li>Development: HTML, CSS</li>
+                    <li>Databases: SQL (כולל שאילתות מורכבות ו-Join)</li>
+                    <li>AI Technologies: עבודה עם כלי AI לייעול תהליכי בדיקה (IA)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-8 text-center border-t pt-4">
+        <p class="text-xs text-slate-400">אחראית, משקיענית, בעלת יכולת עבודה תחת לחץ ולמידה מתמדת של טכנולוגיות חדשות.</p>
+    </footer>
+</div>
+
+</body>
+</html>
