@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZAMRA 4U - Comprehensive STR Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Assistant', sans-serif; background-color: #f8fafc; color: #1e293b; scroll-behavior: smooth; margin: 0; }
+        .page-container { max-width: 1000px; margin: 0 auto; background: white; box-shadow: 0 0 50px rgba(0,0,0,0.1); }
+        
+        .sidebar { background: #0f172a; color: white; width: 280px; height: 100vh; position: fixed; right: 0; top: 0; overflow-y: auto; z-index: 50; border-left: 1px solid #1e293b; }
+        .main-content { margin-right: 280px; padding: 20px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+        .content { width: 100%; max-width: 900px; padding: 60px; background: white; min-height: 100vh; }
+        
+        .section-header { border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 2rem; margin-top: 4rem; display: flex; align-items: center; gap: 12px; }
+        
+        .nav-item { padding: 12px 24px; border-bottom: 1px solid #1e293b; cursor: pointer; transition: 0.2s; font-size: 0.95rem; text-decoration: none; color: inherit; display: block; text-align: right; }
+        .nav-item:hover { background: #1e293b; color: #3b82f6; }
+        
+        .submenu { display: none; background: #0a0f1d; }
+        .has-submenu.active .submenu { display: block; }
+
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .metric-card { background: #f1f5f9; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #e2e8f0; }
+        
+        .module-block { background: #f8fafc; padding: 20px; border-radius: 12px; border-right: 5px solid #3b82f6; margin-bottom: 15px; transition: 0.3s; cursor: pointer; }
+        .module-block:hover { background: #f1f5f9; }
+        
+        .details-content { display: none; margin-top: 15px; border-top: 1px solid #e2e8f0; pt-4; }
+        .module-block.open .details-content { display: block; }
+        .module-block.open .toggle-icon { transform: rotate(180deg); }
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+        th, td { border: 1px solid #cbd5e1; padding: 12px; text-align: right; }
+        th { background: #f1f5f9; font-weight: 700; }
+        
+        .status-pass { color: #166534; font-weight: bold; }
+        .status-fail { color: #991b1b; font-weight: bold; }
+        .status-block { color: #92400e; font-weight: bold; }
+
+        .college-logo { height: 80px; margin: 0 auto 1.5rem; display: block; }
+
+        @media print {
+            .sidebar { display: none; }
+            .main-content { margin-right: 0; }
+            .page-container { box-shadow: none; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar no-print">
+        <div class="p-8 border-b border-slate-700 text-center">
+            <h2 class="text-xl font-bold text-blue-400">AZAMRA 4U</h2>
+            <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-widest">דוח STR סופי</p>
+        </div>
+        <nav>
+            <a href="#header" class="nav-item">שער ופרטי מגישה</a>
+            <a href="#intro" class="nav-item">מבוא ותיאור המוצר</a>
+            <a href="#metrics" class="nav-item">מטריצות וסטטיסטיקה</a>
+            <a href="#test-tree" class="nav-item font-bold">עץ בדיקות מורחב</a>
+            <a href="#bugs" class="nav-item">ניהול באגים (Jira)</a>
+            <a href="#summary" class="nav-item">סיכום והמלצת Release</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="page-container content relative">
+
+            <!-- עמוד 1: שער -->
+            <section id="header" class="text-center mb-32">
+                <img src="https://www.automation.co.il/wp-content/uploads/2021/04/logo-new.png" class="college-logo" alt="המכללה לאוטומציה">
+                <h1 class="text-6xl font-black text-slate-900 mb-2 tracking-tighter">דו"ח סיכום בדיקות</h1>
+                <p class="text-2xl text-blue-600 font-bold mb-10">Software Test Report (STR)</p>
+                <div class="max-w-md mx-auto p-8 border rounded-2xl bg-slate-50 text-center shadow-sm">
+                    <p class="text-xl"><strong>מגישה:</strong> אדל הלפרין</p>
+                    <p class="text-slate-500 mt-2 italic">פרויקט סיום - קורס QA ידני</p>
+                    <p class="text-sm text-slate-400 mt-4">תאריך: מאי 2024</p>
+                </div>
+            </section>
+
+            <!-- עמוד 3: מבוא -->
+            <section id="intro" class="mb-20 text-right">
+                <h3 class="section-header text-2xl font-bold">מבוא ותיאור המערכת</h3>
+                <div class="bg-blue-50 p-6 rounded-xl border-r-4 border-blue-400">
+                    <p class="mb-4"><strong>שם הפרויקט:</strong> Azamra 4U - פורטל חוגי מוזיקה ואמנות.</p>
+                    <p class="leading-relaxed">
+                        המערכת נועדה לאפשר להורים וילדים להירשם לחוגים בתחומי האמנות והמוזיקה (פסנתר, כינור, ציור, פיסול). הבדיקות התמקדו בחוויית המשתמש, תקינות הרישום, וממשק הסליקה.
+                    </p>
+                </div>
+            </section>
+
+            <!-- עמוד 5: מטריצות -->
+            <section id="metrics" class="mb-20 text-right">
+                <h3 class="section-header text-2xl font-bold">מטריצות בדיקות וסיכום תוצאות</h3>
+                <div class="metric-grid">
+                    <div class="metric-card">
+                        <div class="text-3xl font-black text-blue-600">85</div>
+                        <div class="text-sm">סה"כ תרחישים (TCs)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="text-3xl font-black text-green-600">72</div>
+                        <div class="text-sm">עברו בהצלחה (Passed)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="text-3xl font-black text-red-600">9</div>
+                        <div class="text-sm">נכשלו (Failed)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="text-3xl font-black text-amber-600">4</div>
+                        <div class="text-sm">חסומים (Blocked)</div>
+                    </div>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>סוג בדיקה</th>
+                            <th>כמות TCs</th>
+                            <th>Passed</th>
+                            <th>Failed</th>
+                            <th>הערות</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>בדיקות פונקציונליות</td>
+                            <td>45</td>
+                            <td>38</td>
+                            <td>7</td>
+                            <td>בעיות בתהליך התשלום</td>
+                        </tr>
+                        <tr>
+                            <td>בדיקות UI/UX</td>
+                            <td>20</td>
+                            <td>18</td>
+                            <td>2</td>
+                            <td>יישור לימין בטפסים</td>
+                        </tr>
+                        <tr>
+                            <td>Sanity & Smoke</td>
+                            <td>20</td>
+                            <td>16</td>
+                            <td>0</td>
+                            <td>4 חסומים עקב באג שרת</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- עץ בדיקות מורחב -->
+            <section id="test-tree" class="mb-20 text-right">
+                <h3 class="section-header text-2xl font-bold">עץ בדיקות מפורט (לחצי להרחבה)</h3>
+                
+                <!-- Category: Login & Registration -->
+                <div class="module-block" onclick="this.classList.toggle('open')">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-lg">1. ניהול משתמשים ורישום</span>
+                        <span class="text-blue-500 font-bold">12 TCs</span>
+                    </div>
+                    <div class="details-content">
+                        <ul class="list-disc pr-6 space-y-2">
+                            <li>TC-001: רישום משתמש חדש עם פרטים תקינים - <span class="status-pass">PASS</span></li>
+                            <li>TC-002: התחברות עם סיסמה שגויה - <span class="status-pass">PASS</span></li>
+                            <li>TC-003: שחזור סיסמה באמצעות מייל - <span class="status-fail">FAIL</span> (מייל לא נשלח)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category: Music Classes -->
+                <div class="module-block" onclick="this.classList.toggle('open')">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-lg">2. קטלוג חוגי מוזיקה</span>
+                        <span class="text-blue-500 font-bold">25 TCs</span>
+                    </div>
+                    <div class="details-content">
+                        <ul class="list-disc pr-6 space-y-2">
+                            <li>TC-015: סינון חוגים לפי כלי נגינה (פסנתר/כינור) - <span class="status-pass">PASS</span></li>
+                            <li>TC-016: צפייה בסילבוס החוג - <span class="status-pass">PASS</span></li>
+                            <li>TC-017: הרשמה לחוג פסנתר - <span class="status-block">BLOCKED</span> (בעיית שרת)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category: Payments -->
+                <div class="module-block" onclick="this.classList.toggle('open')">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-lg">3. מערכת סליקה ותשלומים</span>
+                        <span class="text-blue-500 font-bold">18 TCs</span>
+                    </div>
+                    <div class="details-content">
+                        <ul class="list-disc pr-6 space-y-2">
+                            <li>TC-040: תשלום בכרטיס אשראי תקין - <span class="status-fail">FAIL</span> (שגיאת 500)</li>
+                            <li>TC-041: הזנת כרטיס פג תוקף - <span class="status-pass">PASS</span></li>
+                            <li>TC-042: הנפקת קבלה דיגיטלית - <span class="status-fail">FAIL</span> (קבלה ריקה)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- עמוד באגים -->
+            <section id="bugs" class="mb-20 text-right">
+                <h3 class="section-header text-2xl font-bold">ניהול באגים קריטיים (Jira)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bug ID</th>
+                            <th>תיאור התקלה</th>
+                            <th>חומרה</th>
+                            <th>סטטוס</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AZ-101</td>
+                            <td>קריסה בתהליך התשלום (שגיאת שרת 500)</td>
+                            <td class="bg-red-100 text-red-700 font-bold">Critical</td>
+                            <td>Open</td>
+                        </tr>
+                        <tr>
+                            <td>AZ-105</td>
+                            <td>רישום כפול לאותו חוג מבלי להתריע</td>
+                            <td class="bg-orange-100 text-orange-700 font-bold">High</td>
+                            <td>In Progress</td>
+                        </tr>
+                        <tr>
+                            <td>AZ-110</td>
+                            <td>תמונות חוגי האמנות לא נטענות במובייל</td>
+                            <td class="bg-yellow-100 text-yellow-700 font-bold">Medium</td>
+                            <td>Resolved</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- עמוד 21: סיכום סופי -->
+            <section id="summary" class="mt-40 mb-20 text-right">
+                <div class="bg-slate-900 text-white p-12 rounded-[40px] shadow-2xl">
+                    <h3 class="text-4xl font-black mb-6">סיכום והחלטת Release</h3>
+                    <div class="space-y-6 text-xl opacity-90">
+                        <p>
+                            לאחר בדיקה מקיפה של כלל המודולים באתר "Azamra 4U", נמצא כי המערכת יציבה מבחינת UI ונראות.
+                        </p>
+                        <div class="p-6 bg-red-500/20 border-r-4 border-red-500 rounded-lg">
+                            <p class="font-bold text-red-400">סטטוס סופי: NO-GO</p>
+                            <p class="text-lg">
+                                קיימים באגים קריטיים במערכת התשלומים (AZ-101) המונעים רישום תקין. אין לשחרר את הגרסה לייצור עד לתיקון תקלות אלו.
+                            </p>
+                        </div>
+                        <div class="flex justify-between items-center mt-12 border-t border-slate-700 pt-8">
+                            <div>
+                                <p class="text-sm text-slate-400 uppercase">חתימת בודקת:</p>
+                                <p class="text-3xl font-black text-blue-400">אדל הלפרין</p>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-sm text-slate-400">עמוד 21 מתוך 21</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
